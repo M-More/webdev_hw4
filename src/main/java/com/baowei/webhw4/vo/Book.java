@@ -1,4 +1,4 @@
-package com.baowei.webhw4;
+package com.baowei.webhw4.vo;
 
 
 /*

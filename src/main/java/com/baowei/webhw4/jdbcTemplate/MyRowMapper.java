@@ -1,11 +1,11 @@
-package com.baowei.webhw4;
+package com.baowei.webhw4.jdbcTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.baowei.webhw4.Book;
+import com.baowei.webhw4.vo.Book;
 
 public class MyRowMapper implements RowMapper<Book>{
     @Override
