@@ -20,30 +20,27 @@ public class BookController {
 
     @RequestMapping("/showAll")
     public List<Book> showAll() {
-        List<Book> booklist = bookService.findAll();
+        List<Book> booklist = bookService.findAllBook();
         return booklist;
     }
 
     @RequestMapping("/delete")
-    public int delete(HttpServletRequest request, @RequestParam("bookIsbn") String bookIsbn) {
-        int result = bookService.delete(bookIsbn);
-        return result;
+    public void delete(HttpServletRequest request, @RequestParam("bookIsbn") String bookIsbn) {
+        bookService.deleteBook(bookIsbn);
     }
 
     @RequestMapping("/update")
-    public int update(HttpServletRequest request, @RequestParam("bookName") String bookName,
+    public void update(HttpServletRequest request, @RequestParam("bookName") String bookName,
                       @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
                       @RequestParam("bookPrice") float bookPrice, @RequestParam("bookInventory") int bookInventory) {
-        int result = bookService.update(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
-        return result;
+        bookService.updateBook(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
     }
 
     @RequestMapping("/create")
-    public int create(HttpServletRequest request, @RequestParam("bookName") String bookName,
+    public void create(HttpServletRequest request, @RequestParam("bookName") String bookName,
                       @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
                       @RequestParam("bookPrice") float bookPrice, @RequestParam("bookInventory") int bookInventory) {
-        int result = bookService.create(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
-        return result;
+        bookService.createBook(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
     }
 
 }

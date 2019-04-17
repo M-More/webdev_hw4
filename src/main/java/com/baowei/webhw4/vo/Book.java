@@ -1,16 +1,32 @@
 package com.baowei.webhw4.vo;
 
+import java.io.Serializable;
+
+import javax.persistence.*;
 
 /*
- * 书籍实体类:包含书籍的基本信息
+ * 书籍实体类
  */
 
+
+@Entity
+@Table(name="book")
 public class Book {
 
+    @Column(name = "bookname")
     private String bookname;
+
+    @Column(name = "author")
     private String author;
+
+    @Id
+    @Column(name = "isbn")
     private String isbn;
+
+    @Column(name = "price")
     private float price;
+
+    @Column(name = "inventory")
     private int inventory;
 
     public Book() {

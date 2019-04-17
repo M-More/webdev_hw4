@@ -2,45 +2,45 @@ package com.baowei.webhw4.service.impl;
 
 import java.util.List;
 
-import com.baowei.webhw4.jdbcTemplate.MyRowMapper;
-import com.baowei.webhw4.service.BookService;
-import com.baowei.webhw4.vo.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.baowei.webhw4.vo.Book;
+import com.baowei.webhw4.repository.BookRepository;
+import com.baowei.webhw4.service.BookService;
 
 @Service
+@Transactional
 public class BookServiceImpl implements BookService {
     @Autowired
-    private  JdbcTemplate jdbcTemplate;
+    private BookRepository bookRepository;
 
     /*
      * 查询所有书籍
      */
 
     @Override
-    public List<Book> findAll(){
-        String sql = "select * from book";
-        List<Book> bookList = jdbcTemplate.query(sql,new MyRowMapper()) ;
-        return bookList;
+    public List<Book> findAllBook(){
+        return bookRepository.findAll();
     }
 
 
     @Override
-    public int delete(String bookIsbn) {
-        String sql = "delete from book where isbn = ?";
-        return jdbcTemplate.update(sql,bookIsbn);
+    public void deleteBook(String bookIsbn) {
+        bookRepository.deleteById(bookIsbn);
     }
 
     @Override
-    public int update(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory) {
-        String sql = "update book set bookname = ? , author = ? , price = ? , inventory = ? where isbn = ?";
-        return jdbcTemplate.update(sql,bookName,bookAuthor,bookPrice,bookInventory,bookIsbn);
+    public void updateBook(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory) {
+        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
+        bookRepository.save(book);
     }
 
     @Override
-    public int create(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory) {
-        String sql = "insert into book values(?,?,?,?,?)";
-        return jdbcTemplate.update(sql,bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
+    public void createBook(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory) {
+        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
+        bookRepository.save(book);
     }
 }
