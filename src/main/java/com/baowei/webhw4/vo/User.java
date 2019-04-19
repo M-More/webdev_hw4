@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int id;
 
@@ -31,9 +32,8 @@ public class User {
         super();
     }
 
-    public User(int id, String name, String password, String email, String kind, Boolean status) {
+    public User(String name, String password, String email, String kind, Boolean status) {
         super();
-        this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;

@@ -29,14 +29,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(int userId, String userName, String userPassword, String userEmail, String userKind, boolean userStatus) {
-        User user = new User(userId,userName,userPassword,userEmail,userKind,userStatus);
+    public void updateUser(String userName, String userPassword, String userEmail, String userKind, boolean userStatus) {
+        User user = new User(userName,userPassword,userEmail,userKind,userStatus);
         userRepository.save(user);
     }
 
     @Override
-    public void createUser(int userId, String userName, String userPassword, String userEmail, String userKind, boolean userStatus) {
-        User user = new User(userId,userName,userPassword,userEmail,userKind,userStatus);
+    public void createUser(String userName, String userPassword, String userEmail, String userKind, boolean userStatus) {
+        User user = new User(userName,userPassword,userEmail,userKind,userStatus);
         userRepository.save(user);
     }
 }

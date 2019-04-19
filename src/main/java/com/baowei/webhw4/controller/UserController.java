@@ -34,14 +34,14 @@ public class UserController {
     public void update(HttpServletRequest request, @RequestParam("userId") int userId, @RequestParam("userName") String userName,
                        @RequestParam("userPassword") String userPassword, @RequestParam("userEmail") String userEmail,
                        @RequestParam("userKind") String userKind, @RequestParam("userStatus") boolean userStatus) {
-        userService.updateUser(userId,userName,userPassword,userEmail,userKind,userStatus);
+        userService.updateUser(userName,userPassword,userEmail,userKind,userStatus);
     }
 
     @RequestMapping("/create")
-    public void create(HttpServletRequest request, @RequestParam("userId") int userId, @RequestParam("userName") String userName,
+    public void create(HttpServletRequest request, @RequestParam("userName") String userName,
                        @RequestParam("userPassword") String userPassword, @RequestParam("userEmail") String userEmail,
                        @RequestParam("userKind") String userKind, @RequestParam("userStatus") boolean userStatus) {
-        userService.updateUser(userId,userName,userPassword,userEmail,userKind,userStatus);
+        userService.createUser(userName,userPassword,userEmail,userKind,userStatus);
     }
 
 
