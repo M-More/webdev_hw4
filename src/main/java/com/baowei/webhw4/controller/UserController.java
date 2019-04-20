@@ -6,6 +6,8 @@ import com.baowei.webhw4.service.UserService;
 import com.baowei.webhw4.vo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,6 +25,14 @@ public class UserController {
     public List<User> showAll() {
         List<User> userlist = userService.findAllUser();
         return userlist;
+    }
+
+    @RequestMapping("/showNow")
+    public UserDetails showNow() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        return userDetails;
     }
 
     @RequestMapping("/delete")

@@ -17,10 +17,6 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    /*
-     * 查询所有书籍
-     */
-
     @Override
     public List<Book> findAllBook(){
         return bookRepository.findAll();
