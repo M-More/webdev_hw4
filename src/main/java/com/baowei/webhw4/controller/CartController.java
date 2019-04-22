@@ -42,6 +42,15 @@ public class CartController {
         cartService.deleteCart(username,isbn);
     }
 
+    @RequestMapping("/clear")
+    public void clear() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        String username = userDetails.getUsername();
+        cartService.clearCart(username);
+    }
+
     @RequestMapping("/update")
     public void update(HttpServletRequest request,
                        @RequestParam("cartName") String cartName, @RequestParam("cartIsbn") String cartIsbn,

@@ -25,12 +25,12 @@ public class OrderController {
 
     @RequestMapping("/create")
     public void create() {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        String username = userDetails.getUsername();
-        Timestamp nowtime= Timestamp.valueOf(LocalDateTime.now());
-        orderService.createOrder(username,nowtime);
+//        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+//                .getAuthentication()
+//                .getPrincipal();
+//        String username = userDetails.getUsername();
+//        Timestamp nowtime= Timestamp.valueOf(LocalDateTime.now());
+//        orderService.createOrder(username,nowtime);
     }
 
 }

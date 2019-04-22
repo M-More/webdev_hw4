@@ -19,6 +19,11 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Override
+    public Order getMaxNum() {
+        return orderRepository.findFirstByOrderByNumDesc();
+    }
+
+    @Override
     public void createOrder(String orderUser, Timestamp orderTime) {
         Order order = new Order(orderUser,orderTime);
         orderRepository.save(order);

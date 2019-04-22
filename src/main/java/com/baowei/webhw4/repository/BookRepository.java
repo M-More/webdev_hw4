@@ -6,5 +6,7 @@ import com.baowei.webhw4.vo.Book;
 
 public interface BookRepository extends JpaRepository<Book,String> {
 
+    Book findBookByIsbn(String isbn);
+
 }
 
