@@ -13,32 +13,44 @@ import javax.persistence.*;
 @Table(name="book")
 public class Book {
 
-    @Column(name = "bookname")
+    @Column(name = "book_name")
     private String bookname;
 
-    @Column(name = "author")
+    @Column(name = "book_author")
     private String author;
 
     @Id
-    @Column(name = "isbn")
+    @Column(name = "book_isbn")
     private String isbn;
 
-    @Column(name = "price")
-    private float price;
+    @Column(name = "book_press")
+    private String press;
 
-    @Column(name = "inventory")
+    @Column(name = "book_size")
+    private String size;
+
+    @Column(name = "book_pubtime")
+    private String pubtime;
+
+    @Column(name = "book_intro")
+    private String intro;
+
+    @Column(name = "book_inventory")
     private int inventory;
 
     public Book() {
         super();
     }
 
-    public Book(String bookname, String author, String isbn, float price, int inventory) {
+    public Book(String bookname, String author, String isbn, String press, String size, String pubtime, String intro, int inventory) {
         super();
         this.bookname = bookname;
         this.author = author;
         this.isbn = isbn;
-        this.price = price;
+        this.press = press;
+        this.size = size;
+        this.pubtime = pubtime;
+        this.intro = intro;
         this.inventory = inventory;
     }
 
@@ -46,36 +58,60 @@ public class Book {
         return bookname;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public int getInventory() {
-        return inventory;
-    }
-
     public void setBookname(String bookname) {
         this.bookname = bookname;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public String getPress() {
+        return press;
+    }
+
+    public void setPress(String press) {
+        this.press = press;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getPubtime() {
+        return pubtime;
+    }
+
+    public void setPubtime(String pubtime) {
+        this.pubtime = pubtime;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public int getInventory() {
+        return inventory;
     }
 
     public void setInventory(int inventory) {

@@ -7,9 +7,11 @@ public interface BookService {
 
     Book findBookByIsbn(String isbn);
 
-    void createBook(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory);
+    void createBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
+                    String bookPubtime, String bookIntro, int bookInventory);
 
-    void updateBook(String bookName, String bookAuthor, String bookIsbn, float bookPrice, int bookInventory);
+    void updateBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
+                    String bookPubtime, String bookIntro, int bookInventory);
 
     void deleteBook(String bookIsbn);
 }

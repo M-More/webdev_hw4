@@ -1,5 +1,6 @@
 package com.baowei.webhw4.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import com.baowei.webhw4.service.BookService;
@@ -24,6 +25,14 @@ public class BookController {
         return booklist;
     }
 
+    @RequestMapping("/findOne")
+    public Book findOne(HttpServletRequest request, @RequestParam("bookIsbn") String bookIsbn){
+        Book book = bookService.findBookByIsbn(bookIsbn);
+//        List<Book> bookList = new LinkedList<>();
+//        bookList.add(book);
+        return book;
+    }
+
     @RequestMapping("/delete")
     public void delete(HttpServletRequest request, @RequestParam("bookIsbn") String bookIsbn) {
         bookService.deleteBook(bookIsbn);
@@ -31,16 +40,20 @@ public class BookController {
 
     @RequestMapping("/update")
     public void update(HttpServletRequest request, @RequestParam("bookName") String bookName,
-                      @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
-                      @RequestParam("bookPrice") float bookPrice, @RequestParam("bookInventory") int bookInventory) {
-        bookService.updateBook(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
+                       @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
+                      @RequestParam("bookPress") String bookPress, @RequestParam("bookSize") String bookSize,
+                       @RequestParam("bookPubtime") String bookPubtime, @RequestParam("bookIntro") String bookIntro,
+                       @RequestParam("bookInventory") int bookInventory) {
+        bookService.updateBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
     }
 
     @RequestMapping("/create")
     public void create(HttpServletRequest request, @RequestParam("bookName") String bookName,
-                      @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
-                      @RequestParam("bookPrice") float bookPrice, @RequestParam("bookInventory") int bookInventory) {
-        bookService.createBook(bookName,bookAuthor,bookIsbn,bookPrice,bookInventory);
+                       @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
+                       @RequestParam("bookPress") String bookPress, @RequestParam("bookSize") String bookSize,
+                       @RequestParam("bookPubtime") String bookPubtime, @RequestParam("bookIntro") String bookIntro,
+                       @RequestParam("bookInventory") int bookInventory) {
+        bookService.createBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
     }
 
 }

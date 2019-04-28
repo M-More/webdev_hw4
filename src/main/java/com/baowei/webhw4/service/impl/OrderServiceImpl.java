@@ -28,4 +28,10 @@ public class OrderServiceImpl implements OrderService {
         Order order = new Order(orderUser,orderTime);
         orderRepository.save(order);
     }
+
+    @Override
+    public List<Order> findOrderByUsername(String orderUser){
+        List<Order> orderList = orderRepository.findOrdersByUsername(orderUser);
+        return orderList;
+    }
 }

@@ -33,4 +33,14 @@ public class OrderController {
 //        orderService.createOrder(username,nowtime);
     }
 
+    @RequestMapping("/findByUser")
+    public List<Order> findByUser(HttpServletRequest request) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        String username = userDetails.getUsername();
+        List<Order> orderlist = orderService.findOrderByUsername(username);
+        return orderlist;
+    }
+
 }
