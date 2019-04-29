@@ -23,4 +23,10 @@ public class OrderItemServiceImpl implements OrderItemService {
         OrderItem orderitem = new OrderItem(orderNum,itemName,itemIsbn,itemAmount);
         orderItemRepository.save(orderitem);
     }
+
+    @Override
+    public List<OrderItem> findOrderItemsByOrdernum(int orderNum){
+        List<OrderItem> itemList = orderItemRepository.findOrderItemsByOrdernum(orderNum);
+        return itemList;
+    }
 }

@@ -62,8 +62,12 @@ public class OrderItemController {
                     book.getSize(),book.getPubtime(),book.getIntro(),inventory_new);
 
         }
-
         cartService.clearCart(username);    //清空购物车
+    }
+
+    @RequestMapping("findByOrderNum")
+    public List<OrderItem> findByOrderNum(HttpServletRequest request, @RequestParam("orderNum") int orderNum){
+        return orderItemService.findOrderItemsByOrdernum(orderNum);
     }
 
 }

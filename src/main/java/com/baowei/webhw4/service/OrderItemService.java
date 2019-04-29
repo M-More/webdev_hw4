@@ -8,4 +8,6 @@ public interface OrderItemService {
 
     void createOrderItem(int orderNum, String itemName, String itemIsbn, int itemAmount);
 
+    List<OrderItem> findOrderItemsByOrdernum(int orderNum);
+
 }
