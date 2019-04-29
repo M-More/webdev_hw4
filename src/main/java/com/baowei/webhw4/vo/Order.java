@@ -1,5 +1,7 @@
 package com.baowei.webhw4.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -15,6 +17,7 @@ public class Order {
     @Column(name = "order_user")
     private String username;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "order_time")
     private Timestamp time;
 

@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.baowei.webhw4.service.BookService;
@@ -47,7 +48,7 @@ public class OrderItemController {
                 .getPrincipal();
         String username = userDetails.getUsername();
 
-        Timestamp nowtime= Timestamp.valueOf(LocalDateTime.now());
+        Timestamp nowtime= new Timestamp(System.currentTimeMillis()+28800000);
         orderService.createOrder(username,nowtime);
 
         List<Cart> cartlist = cartService.findCartbyUsername(username);

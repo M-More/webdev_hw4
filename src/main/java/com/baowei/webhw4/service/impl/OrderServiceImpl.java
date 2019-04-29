@@ -34,4 +34,10 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orderList = orderRepository.findOrdersByUsername(orderUser);
         return orderList;
     }
+
+    @Override
+    public List<Order> findOrdersByTimeBetweenAndUsername(Timestamp start, Timestamp end, String username){
+        List<Order> orderList = orderRepository.findOrdersByTimeBetweenAndUsername(start, end, username);
+        return orderList;
+    }
 }

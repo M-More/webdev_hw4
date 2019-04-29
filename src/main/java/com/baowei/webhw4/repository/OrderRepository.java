@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.baowei.webhw4.vo.Order;
 import org.springframework.data.jpa.repository.Query;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order,Integer> {
@@ -12,4 +13,6 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
     Order findFirstByOrderByNumDesc();
 
     List<Order> findOrdersByUsername(String username);
+
+    List<Order> findOrdersByTimeBetweenAndUsername(Timestamp start, Timestamp end, String username);
 }

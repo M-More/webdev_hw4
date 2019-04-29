@@ -1,5 +1,6 @@
 package com.baowei.webhw4.controller;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -41,6 +42,19 @@ public class OrderController {
         String username = userDetails.getUsername();
         List<Order> orderlist = orderService.findOrderByUsername(username);
         return orderlist;
+    }
+
+    @RequestMapping("/findRange")
+    public List<Order> findRange(HttpServletRequest request, @RequestParam("startTime") long startTime,
+                                 @RequestParam("endTime") long endTime){
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        String username = userDetails.getUsername();
+        Timestamp start = new Timestamp(startTime);
+        Timestamp end = new Timestamp(endTime);
+        List<Order> orderList = orderService.findOrdersByTimeBetweenAndUsername(start, end, username);
+        return orderList;
     }
 
 }

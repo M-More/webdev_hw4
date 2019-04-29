@@ -11,4 +11,6 @@ public interface OrderService {
     void createOrder(String orderUser, Timestamp orderTime);
 
     List<Order> findOrderByUsername(String orderUser);
+
+    List<Order> findOrdersByTimeBetweenAndUsername(Timestamp start, Timestamp end, String username);
 }
