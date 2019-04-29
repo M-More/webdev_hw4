@@ -1,6 +1,6 @@
 package com.baowei.webhw4.service;
 import java.util.List;
-import com.baowei.webhw4.vo.Book;
+import com.baowei.webhw4.entity.Book;
 
 public interface BookService {
     List<Book> findAllBook();

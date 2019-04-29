@@ -3,7 +3,7 @@ package com.baowei.webhw4.controller;
 import java.util.List;
 
 import com.baowei.webhw4.service.UserService;
-import com.baowei.webhw4.vo.User;
+import com.baowei.webhw4.entity.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

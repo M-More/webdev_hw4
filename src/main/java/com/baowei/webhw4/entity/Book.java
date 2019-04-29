@@ -1,6 +1,4 @@
-package com.baowei.webhw4.vo;
-
-import java.io.Serializable;
+package com.baowei.webhw4.entity;
 
 import javax.persistence.*;
 

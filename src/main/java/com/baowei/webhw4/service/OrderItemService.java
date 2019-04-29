@@ -1,8 +1,7 @@
 package com.baowei.webhw4.service;
 
-import java.sql.Timestamp;
 import java.util.List;
-import com.baowei.webhw4.vo.OrderItem;
+import com.baowei.webhw4.entity.OrderItem;
 
 public interface OrderItemService {
 

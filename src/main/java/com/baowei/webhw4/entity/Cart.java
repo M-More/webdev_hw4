@@ -1,12 +1,10 @@
-package com.baowei.webhw4.vo;
-
-import java.io.Serializable;
+package com.baowei.webhw4.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="cart")
-@IdClass(com.baowei.webhw4.vo.CartIdClass.class)
+@IdClass(com.baowei.webhw4.entity.CartIdClass.class)
 public class Cart {
 
     @Id
@@ -20,6 +18,9 @@ public class Cart {
     @Column(name = "cartbook_isbn")
     private String isbn;
 
+    @Column(name = "cartbook_inventory")
+    private int inventory;
+
     @Column(name = "cartbook_amount")
     private int amount;
 
@@ -27,11 +28,11 @@ public class Cart {
         super();
     }
 
-    public Cart(String username, String bookname, String isbn, int amount) {
-        super();
+    public Cart(String username, String bookname, String isbn, int inventory, int amount) {
         this.username = username;
         this.bookname = bookname;
         this.isbn = isbn;
+        this.inventory = inventory;
         this.amount = amount;
     }
 
@@ -57,6 +58,14 @@ public class Cart {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public int getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
     }
 
     public int getAmount() {

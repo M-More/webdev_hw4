@@ -1,7 +1,7 @@
 package com.baowei.webhw4;
 
 import com.baowei.webhw4.repository.SystemUserRepo;
-import com.baowei.webhw4.vo.SystemUser;
+import com.baowei.webhw4.entity.SystemUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

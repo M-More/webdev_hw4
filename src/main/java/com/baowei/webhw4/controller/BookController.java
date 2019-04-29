@@ -1,10 +1,9 @@
 package com.baowei.webhw4.controller;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import com.baowei.webhw4.service.BookService;
-import com.baowei.webhw4.vo.Book;
+import com.baowei.webhw4.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

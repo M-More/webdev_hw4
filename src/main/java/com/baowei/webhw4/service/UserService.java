@@ -1,6 +1,6 @@
 package com.baowei.webhw4.service;
 import java.util.List;
-import com.baowei.webhw4.vo.User;
+import com.baowei.webhw4.entity.User;
 
 public interface UserService {
     List<User> findAllUser();

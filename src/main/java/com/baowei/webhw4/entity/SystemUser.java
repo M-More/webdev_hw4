@@ -1,4 +1,4 @@
-package com.baowei.webhw4.vo;
+package com.baowei.webhw4.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

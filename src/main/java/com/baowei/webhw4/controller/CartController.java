@@ -3,15 +3,13 @@ package com.baowei.webhw4.controller;
 import java.util.List;
 
 import com.baowei.webhw4.service.CartService;
-import com.baowei.webhw4.vo.Cart;
+import com.baowei.webhw4.entity.Cart;
 
-import com.baowei.webhw4.vo.SystemUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.stereotype.Service;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,23 +52,23 @@ public class CartController {
     @RequestMapping("/update")
     public void update(HttpServletRequest request,
                        @RequestParam("cartName") String cartName, @RequestParam("cartIsbn") String cartIsbn,
-                       @RequestParam("cartAmount") int cartAmount) {
+                       @RequestParam("cartInventory") int cartInventory, @RequestParam("cartAmount") int cartAmount) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
         String username = userDetails.getUsername();
-        cartService.updateCart(username,cartName,cartIsbn,cartAmount);
+        cartService.updateCart(username,cartName,cartIsbn,cartInventory,cartAmount);
     }
 
     @RequestMapping("/create")
     public void create(HttpServletRequest request,
                        @RequestParam("cartName") String cartName, @RequestParam("cartIsbn") String cartIsbn,
-                       @RequestParam("cartAmount") int cartAmount) {
+                       @RequestParam("cartInventory") int cartInventory, @RequestParam("cartAmount") int cartAmount) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
         String username = userDetails.getUsername();
-        cartService.createCart(username,cartName,cartIsbn,cartAmount);
+        cartService.createCart(username,cartName,cartIsbn,cartInventory,cartAmount);
     }
 
 }

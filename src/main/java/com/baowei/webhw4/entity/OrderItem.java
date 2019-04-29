@@ -1,12 +1,10 @@
-package com.baowei.webhw4.vo;
-
-import java.io.Serializable;
+package com.baowei.webhw4.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="order_item")
-@IdClass(com.baowei.webhw4.vo.ItemIdClass.class)
+@IdClass(com.baowei.webhw4.entity.ItemIdClass.class)
 public class OrderItem {
 
     @Id

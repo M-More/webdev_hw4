@@ -1,13 +1,12 @@
-package com.baowei.webhw4.service.impl;
+package com.baowei.webhw4.service.implementation;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baowei.webhw4.vo.Book;
+import com.baowei.webhw4.entity.Book;
 import com.baowei.webhw4.repository.BookRepository;
 import com.baowei.webhw4.service.BookService;
 
