@@ -4,8 +4,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -27,9 +25,9 @@ public class SecurityUser extends User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> auths = new ArrayList<>();
-        auths.add(new SimpleGrantedAuthority("USER"));
-        if (this.getKind().equals("admin")){
-            auths.add(new SimpleGrantedAuthority("ADMIN"));
+        auths.add(new SimpleGrantedAuthority("ROLE_USER"));
+        if (this.getKind().equals("管理员")){
+            auths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
         return auths;
     }
