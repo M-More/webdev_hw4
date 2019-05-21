@@ -28,9 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(String userName, String userPassword, String userEmail, String userKind, boolean userStatus) {
-        User user = new User(userName,userPassword,userEmail,userKind,userStatus);
-        userRepository.save(user);
+    public void updateUserStatus(boolean userStatus, int userId){
+        userRepository.updateUserStatus(userStatus,userId);
     }
 
     @Override

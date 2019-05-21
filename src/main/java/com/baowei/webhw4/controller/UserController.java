@@ -41,10 +41,9 @@ public class UserController {
     }
 
     @RequestMapping("/update")
-    public void update(HttpServletRequest request, @RequestParam("userId") int userId, @RequestParam("userName") String userName,
-                       @RequestParam("userPassword") String userPassword, @RequestParam("userEmail") String userEmail,
-                       @RequestParam("userKind") String userKind, @RequestParam("userStatus") boolean userStatus) {
-        userService.updateUser(userName,userPassword,userEmail,userKind,userStatus);
+    public void update(HttpServletRequest request, @RequestParam("userId") int userId,
+                        @RequestParam("userStatus") boolean userStatus) {
+        userService.updateUserStatus(userStatus, userId);
     }
 
     @RequestMapping("/create")

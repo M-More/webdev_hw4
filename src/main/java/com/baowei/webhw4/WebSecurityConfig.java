@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
                     throws IOException, ServletException {
                 User userDetails = (User) authentication.getPrincipal();
-                logger.info(" LOGIN SUCCESS !  ");
+                logger.info("LOGIN SUCCESS ! ");
                 response.sendRedirect("/booklist");
                 super.onAuthenticationSuccess(request, response, authentication);
             }
