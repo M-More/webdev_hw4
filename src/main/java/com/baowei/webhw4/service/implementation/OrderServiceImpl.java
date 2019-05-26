@@ -29,6 +29,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> findAllOrder(){
+        List<Order> orderList = orderRepository.findAll();
+        return orderList;
+    }
+
+    @Override
     public List<Order> findOrderByUsername(String orderUser){
         List<Order> orderList = orderRepository.findOrdersByUsername(orderUser);
         return orderList;

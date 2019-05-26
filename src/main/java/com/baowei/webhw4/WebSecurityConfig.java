@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login","/static/**","/js/*","/css/*","/fonts/*","/img/*").permitAll()
                 .antMatchers("/home","/register","/users/showAll","/users/create").permitAll()
-                .antMatchers("/usermanage").hasRole("ADMIN")
+                .antMatchers("/admin/*").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -59,7 +59,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     throws IOException, ServletException {
                 User userDetails = (User) authentication.getPrincipal();
                 logger.info("LOGIN SUCCESS ! ");
-                response.sendRedirect("/booklist");
+                if (userDetails.getKind().equals("管理员")){
+                    response.sendRedirect("/admin/home");
+                }
+                else{
+                    response.sendRedirect("/user/home");
+                }
                 super.onAuthenticationSuccess(request, response, authentication);
             }
         };

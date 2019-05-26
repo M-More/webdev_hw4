@@ -5,6 +5,7 @@ import java.util.List;
 import com.baowei.webhw4.entity.Order;
 
 public interface OrderService {
+    List<Order> findAllOrder();
 
     Order getMaxNum();
 
