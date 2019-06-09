@@ -8,10 +8,10 @@ public interface BookService {
     Book findBookByIsbn(String isbn);
 
     void createBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
-                    String bookPubtime, String bookIntro, int bookInventory);
+                    String bookPubtime, String bookIntro, int bookInventory, String bookCover);
 
     void updateBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
-                    String bookPubtime, String bookIntro, int bookInventory);
+                    String bookPubtime, String bookIntro, int bookInventory, String bookCover);
 
     void deleteBook(String bookIsbn);
 }

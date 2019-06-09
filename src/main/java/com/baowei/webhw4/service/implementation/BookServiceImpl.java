@@ -33,15 +33,15 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void updateBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
-                           String bookPubtime, String bookIntro, int bookInventory) {
-        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
+                           String bookPubtime, String bookIntro, int bookInventory, String bookCover) {
+        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory,bookCover);
         bookRepository.save(book);
     }
 
     @Override
     public void createBook(String bookName, String bookAuthor, String bookIsbn, String bookPress, String bookSize,
-                    String bookPubtime, String bookIntro, int bookInventory) {
-        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
+                    String bookPubtime, String bookIntro, int bookInventory, String bookCover) {
+        Book book = new Book(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory,bookCover);
         bookRepository.save(book);
     }
 }

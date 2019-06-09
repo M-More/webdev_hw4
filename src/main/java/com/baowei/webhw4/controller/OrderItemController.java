@@ -54,7 +54,7 @@ public class OrderItemController {
             Book book = bookService.findBookByIsbn(cartlist.get(i).getIsbn());
             int inventory_new = book.getInventory()-cartlist.get(i).getAmount();    //计算更新后的库存
             bookService.updateBook(book.getBookname(),book.getAuthor(),book.getIsbn(),book.getPress(),
-                    book.getSize(),book.getPubtime(),book.getIntro(),inventory_new);
+                    book.getSize(),book.getPubtime(),book.getIntro(),inventory_new,book.getCover());
 
         }
         cartService.clearCart(username);    //清空购物车

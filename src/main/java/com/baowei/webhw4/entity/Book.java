@@ -1,46 +1,37 @@
 package com.baowei.webhw4.entity;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
 
 /*
  * 书籍实体类
  */
 
-
-@Entity
-@Table(name="book")
 public class Book {
 
-    @Column(name = "book_name")
     private String bookname;
 
-    @Column(name = "book_author")
     private String author;
 
     @Id
-    @Column(name = "book_isbn")
     private String isbn;
 
-    @Column(name = "book_press")
     private String press;
 
-    @Column(name = "book_size")
     private String size;
 
-    @Column(name = "book_pubtime")
     private String pubtime;
 
-    @Column(name = "book_intro")
     private String intro;
 
-    @Column(name = "book_inventory")
     private int inventory;
+
+    private String cover;
 
     public Book() {
         super();
     }
 
-    public Book(String bookname, String author, String isbn, String press, String size, String pubtime, String intro, int inventory) {
+    public Book(String bookname, String author, String isbn, String press, String size, String pubtime, String intro, int inventory, String cover) {
         super();
         this.bookname = bookname;
         this.author = author;
@@ -50,6 +41,7 @@ public class Book {
         this.pubtime = pubtime;
         this.intro = intro;
         this.inventory = inventory;
+        this.cover = cover;
     }
 
     public String getBookname() {
@@ -115,4 +107,8 @@ public class Book {
     public void setInventory(int inventory) {
         this.inventory = inventory;
     }
+
+    public String getCover() { return cover; }
+
+    public void setCover(String cover) { this.cover = cover; }
 }

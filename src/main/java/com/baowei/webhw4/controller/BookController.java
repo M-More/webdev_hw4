@@ -7,8 +7,6 @@ import com.baowei.webhw4.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -41,8 +39,8 @@ public class BookController {
                        @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
                       @RequestParam("bookPress") String bookPress, @RequestParam("bookSize") String bookSize,
                        @RequestParam("bookPubtime") String bookPubtime, @RequestParam("bookIntro") String bookIntro,
-                       @RequestParam("bookInventory") int bookInventory) {
-        bookService.updateBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
+                       @RequestParam("bookInventory") int bookInventory, @RequestParam("bookCover") String bookCover) {
+        bookService.updateBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory,bookCover);
     }
 
     @RequestMapping("/create")
@@ -51,7 +49,6 @@ public class BookController {
                        @RequestParam("bookPress") String bookPress, @RequestParam("bookSize") String bookSize,
                        @RequestParam("bookPubtime") String bookPubtime, @RequestParam("bookIntro") String bookIntro,
                        @RequestParam("bookInventory") int bookInventory, @RequestParam("bookCover") String bookCover) {
-        System.out.println(bookCover);
-        bookService.createBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
+        bookService.createBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory,bookCover);
     }
 }

@@ -1,12 +1,12 @@
 package com.baowei.webhw4.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.baowei.webhw4.entity.Book;
 
-public interface BookRepository extends JpaRepository<Book,String> {
+public interface BookRepository extends MongoRepository<Book,String> {
 
-    Book findBookByIsbn(String isbn);
+    Book findBookByIsbn(String Isbn);
 
 }
 
