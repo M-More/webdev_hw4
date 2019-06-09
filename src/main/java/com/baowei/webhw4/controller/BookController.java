@@ -5,10 +5,9 @@ import java.util.List;
 import com.baowei.webhw4.service.BookService;
 import com.baowei.webhw4.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -51,8 +50,8 @@ public class BookController {
                        @RequestParam("bookAuthor") String bookAuthor, @RequestParam("bookIsbn") String bookIsbn,
                        @RequestParam("bookPress") String bookPress, @RequestParam("bookSize") String bookSize,
                        @RequestParam("bookPubtime") String bookPubtime, @RequestParam("bookIntro") String bookIntro,
-                       @RequestParam("bookInventory") int bookInventory) {
+                       @RequestParam("bookInventory") int bookInventory, @RequestParam("bookCover") String bookCover) {
+        System.out.println(bookCover);
         bookService.createBook(bookName,bookAuthor,bookIsbn,bookPress,bookSize,bookPubtime,bookIntro,bookInventory);
     }
-
 }
